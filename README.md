@@ -39,20 +39,19 @@ yarn add koa-expect-ct
 ```js
 const expectCT = require('koa-expect-ct');
 
+const app = new Koa();
+
 const options = {
   maxAge: 60,
   enforce: true,
   reportUri: 'https://reports.com'
 };
 
-const app = new Koa();
-
 // add expectCT middleware
 app.use(expectCT(options));
 app.use(function (ctx) {
   ctx.body = { foo: 'bar' };
 });
-return app;
 ```
 
 
